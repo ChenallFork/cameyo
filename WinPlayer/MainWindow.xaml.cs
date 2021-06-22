@@ -110,7 +110,7 @@ namespace Cameyo.Player
         // Storage click
         void OnStorageClick(object sender, RoutedEventArgs e)
         {
-            Utils.ShellExec(Server.ServerUrl() + "/storage", false);
+            Utils.ShellExec(Server.ServerUrl() + "/profile", false);
         }
 
         // Pkg creation click
@@ -244,9 +244,12 @@ namespace Cameyo.Player
             //DetailsVersion.Text = "v" + appDisplay.Version;
             DetailsName.Text = appDisplay.Name;
 
-            DetailsPkgId.Text = "#" + appDisplay.PkgId;   // Used also to synchronize between this routine and ShowDetailsAsync
-            DetailsSize.Text = Utils.BytesToStr(appDisplay.Size);
-            DetailsVersion.Text = "v" + appDisplay.Version;
+            DetailsPkgId.Text = "#" + appDisplay.PkgId;         // Used also to synchronize between this routine and ShowDetailsAsync
+            //DetailsSize.Text = Utils.BytesToStr(appDisplay.Size);
+            //DetailsVersion.Text = "v" + appDisplay.Version;
+            DetailsSize.Visibility = Visibility.Collapsed;      // Deprecated
+            DetailsVersion.Visibility = Visibility.Collapsed;   // Deprecated
+            DownloadBtn.Visibility = Visibility.Collapsed;      // Deprecated
 
             // Empty async items
             DetailsDescription.Text = "";
